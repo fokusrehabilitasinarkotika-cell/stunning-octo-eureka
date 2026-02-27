@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Struktur Organisasi - Fokus Rehabilitasi Narkotika Indonesia</title>
+    <style>
+        body { font-family: 'Arial', sans-serif; background-color: #f0f0f0; margin: 0; padding: 20px; display: flex; flex-direction: column; align-items: center; }
+        .no-print { margin-bottom: 20px; display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; }
+        .print-btn, .upload-btn { padding: 12px 25px; background: #e30613; color: white; border: 2px solid #000; font-weight: bold; cursor: pointer; border-radius: 5px; font-size: 16px; }
+        .upload-btn { background: #2c3e50; border-color: #1a252f; }
+        
+        /* A4 Portrait Setup */
+        .page { width: 210mm; min-height: 297mm; padding: 15mm; background: white; box-shadow: 0 0 10px rgba(0,0,0,0.2); box-sizing: border-box; text-align: center; position: relative; margin: 0 auto; }
+        
+        /* Header & Logo */
+        .header-section { display: flex; align-items: center; justify-content: center; border-bottom: 4px solid #000; padding-bottom: 20px; margin-bottom: 30px; position: relative; }
+        .logo-box { position: absolute; left: 0; width: 90px; height: 90px; border: 2px dashed #000; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; color: #666; background: #f8f8f8; overflow: hidden; }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; display: block; }
+        .title-text h1 { margin: 0; font-size: 26px; font-weight: 900; letter-spacing: 1px; }
+        .title-text h2 { margin: 5px 0 0; font-size: 22px; color: #e30613; font-weight: 800; }
+
+        /* Box Styling */
+        .box { border: 2px solid #000; width: 70%; margin: 0 auto; background: #fff; box-shadow: 2px 2px 0px #000; }
+        .box-header { background: #e30613; color: white; padding: 10px; font-weight: 900; font-size: 18px; border-bottom: 2px solid #000; text-transform: uppercase; }
+        .box-content { padding: 15px; font-weight: bold; font-size: 17px; color: #000; line-height: 1.6; }
+
+        /* Lines */
+        .v-line { width: 3px; height: 30px; background: #000; margin: 0 auto; }
+
+        /* Two Column Layout */
+        .row { display: flex; justify-content: space-around; width: 90%; margin: 0 auto; }
+        .row .box { width: 45%; margin: 0; }
+
+        /* Footer Boxes */
+        .footer-row { display: flex; justify-content: space-between; width: 100%; margin-top: 50px; border-top: 2px solid #000; padding-top: 30px; }
+        .footer-box { border: 2px solid #000; width: 30%; padding: 15px 5px; font-weight: 900; color: #e30613; font-size: 14px; text-transform: uppercase; }
+
+        /* instruksi kecil */
+        .hint-text { font-size: 12px; color: #555; margin-top: 8px; font-style: italic; }
+
+        @media print {
+            .no-print { display: none; }
+            body { background: none; padding: 0; }
+            .page { box-shadow: none; border: none; margin: 0; width: 100%; }
+            * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="no-print">
+        <button class="print-btn" onclick="window.print()">🖨️ CETAK SEKARANG</button>
+        <button class="upload-btn" onclick="document.getElementById('logoInput').click()">📱 UPLOAD LOGO (DARI ANDROID)</button>
+        <input type="file" id="logoInput" accept="image/*" style="display: none;" onchange="handleLogoUpload(event)">
+    </div>
+
+    <div class="page">
+        <div class="header-section">
+            <div class="logo-box" id="logoPreviewContainer">
+                <!-- Placeholder akan diganti jika ada gambar yang diupload -->
+                <img src="" alt="Logo" id="logoPreview" style="display: none;">
+                <span id="logoPlaceholder">LOGO DI SINI</span>
+            </div>
+            <div class="title-text">
+                <h1>STRUKTUR ORGANISASI</h1>
+                <h2>FOKUS REHABILITASI NARKOTIKA INDONESIA</h2>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">PENGAWAS</div>
+            <div class="box-content">
+                IR. SUGENG WIJAYA<br>
+                JOPI IMANUEL TARIGAN<br>
+                LIAW EDDY SUD
+            </div>
+        </div>
+
+        <div class="v-line"></div>
+
+        <div class="box">
+            <div class="box-header">KETUA</div>
+            <div class="box-content">MIFTA FARIZ BOLI MALAKALU S.H</div>
+        </div>
+
+        <div class="v-line"></div>
+
+        <div class="row">
+            <div class="box">
+                <div class="box-header">BENDAHARA</div>
+                <div class="box-content">GINO TARIGAN S.KOM</div>
+            </div>
+            <div class="box">
+                <div class="box-header">SEKRETARIS</div>
+                <div class="box-content">ADLIN ADAIR</div>
+            </div>
+        </div>
+
+        <div class="footer-row">
+            <div class="footer-box">SUPERVISI KLINIS</div>
+            <div class="footer-box">KONSELOR</div>
+            <div class="footer-box">TENAGA PROFESIONAL</div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogoUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('logoPreview');
+                    const placeholder = document.getElementById('logoPlaceholder');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                    placeholder.style.display = 'none';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+    </script>
+
+    <!-- catatan: setelah upload, logo akan tampil di lingkaran. jika ingin menghapus bisa refresh -->
+</body>
+</html>
