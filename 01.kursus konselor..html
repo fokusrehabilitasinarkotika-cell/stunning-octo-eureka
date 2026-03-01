@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kursus Konselor Adiksi - Manajemen Kasus</title>
+
+<style>
+@page{
+    size:A4;
+    margin:2cm;
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    background:#eee;
+}
+
+/* SLIDE */
+.slide{
+    position:relative;
+    page-break-after:always;
+    min-height:100vh;
+    padding:80px 60px;
+    box-sizing:border-box;
+    background:#fff;
+    width:794px;
+    margin:30px auto;
+    box-shadow:0 0 20px rgba(0,0,0,0.15);
+}
+
+/* COVER */
+.cover{
+    background:#b30000;
+    color:#fff;
+    text-align:center;
+}
+
+/* LOGO COVER BULAT BESAR */
+.logo-cover{
+    width:230px;
+    height:230px;
+    object-fit:cover;
+    border-radius:50%;
+    margin-bottom:30px;
+    border:6px solid #fff;
+}
+
+/* WATERMARK */
+.watermark{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    opacity:0.06;
+    width:500px;
+    z-index:0;
+}
+
+.slide-content{
+    position:relative;
+    z-index:1;
+}
+
+/* PERBESAR FONT */
+h1{font-size:48px;}
+h2{font-size:36px;}
+h3{font-size:28px;}
+p{font-size:26px; line-height:1.8;}
+ul{font-size:26px; line-height:2;}
+.quote{font-style:italic; font-size:30px;}
+
+/* Upload Box */
+.upload-box{
+    text-align:center;
+    padding:20px;
+    background:#fff;
+}
+
+button{
+    background:#b30000;
+    color:#fff;
+    border:none;
+    padding:12px 25px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:18px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="upload-box">
+    <h3>Upload Logo dari Android</h3>
+    <input type="file" id="logoInput" accept="image/*">
+    <br><br>
+    <button onclick="window.print()">PRINT / SIMPAN PDF</button>
+</div>
+
+<!-- COVER -->
+<div class="slide cover">
+    <div class="slide-content">
+        <img id="coverLogo" class="logo-cover">
+        <h1>KURSUS KONSELOR ADIKSI</h1>
+        <h2>Manajemen Kasus</h2>
+        <h3><i>Membangun Pemulihan Terintegrasi</i></h3>
+        <p>Oleh:</p>
+        <h2>MIFTA FARIZ BOLI MALAKALU, S.H</h2>
+    </div>
+</div>
+
+<script>
+const content = `
+Kata Pengantar|Kursus Konselor Adiksi ini dirancang untuk membekali peserta dengan kompetensi manajemen kasus yang komprehensif, terstruktur, dan berbasis praktik profesional. Materi difokuskan pada peningkatan kapasitas konselor dalam mendampingi klien menuju pemulihan berkelanjutan melalui pendekatan multidisipliner dan terintegrasi.<br><br>— Tim Penyusun
+
+Tujuan Pembelajaran|• Memahami konsep dasar dan prinsip manajemen kasus<br>• Melakukan asesmen kebutuhan klien secara komprehensif<br>• Menyusun rencana intervensi berbasis prinsip SMART<br>• Melakukan koordinasi layanan lintas profesi<br>• Melaksanakan monitoring dan evaluasi perkembangan klien<br>• Menyusun dokumentasi profesional sesuai standar etika
+
+Pengertian Manajemen Kasus|Manajemen kasus adalah proses terstruktur dan kolaboratif untuk memastikan klien memperoleh layanan yang tepat dan berkesinambungan.<br><br>Meliputi:<br>• Identifikasi kebutuhan<br>• Perencanaan layanan<br>• Penghubungan dengan sumber daya<br>• Pemantauan perkembangan<br>• Evaluasi hasil<br><br>🎯 Tujuan: Layanan terintegrasi dan berorientasi pada pemulihan.
+
+6 Tahapan Manajemen Kasus|1. Intake & Engagement<br>2. Asesmen Komprehensif<br>3. Perencanaan Intervensi<br>4. Koordinasi Layanan<br>5. Monitoring & Evaluasi<br>6. Terminasi & Aftercare
+
+Intake & Engagement|Tahap awal membangun kepercayaan profesional.<br><br>• Pengumpulan biodata dan dokumen awal<br>• Kontrak layanan<br>• Pendekatan motivasional<br><br>Hasil: Klien merasa aman, diterima, dan tidak dihakimi.
+
+Asesmen Komprehensif|Meliputi aspek medis, psikologis, sosial, hukum, dan spiritual.<br><br>Instrumen: ASSIST, URICA, WHOQOL, ASI.<br><br>Menjadi dasar penyusunan treatment plan.
+
+Perencanaan Intervensi|Prinsip SMART:<br>• Spesifik<br>• Terukur<br>• Aplikatif<br>• Realistis<br>• Terikat waktu<br><br>Contoh target: Stabil 30 hari tanpa relapse dan konseling dua kali per minggu.
+
+Koordinasi Layanan|Menghubungkan klien dengan:<br>• Dokter<br>• Psikolog<br>• Pekerja Sosial<br>• Keluarga<br>• Lembaga Hukum<br><br>Rehabilitasi adalah kerja tim.
+
+Monitoring & Evaluasi|• Catatan perkembangan harian<br>• Evaluasi mingguan<br>• Review bulanan treatment plan<br><br>Bertujuan memastikan intervensi efektif dan adaptif.
+
+Terminasi & Aftercare|• Evaluasi akhir<br>• Penyusunan rencana aftercare<br>• Rujukan komunitas support<br><br>Aftercare menjaga stabilitas pemulihan.
+
+Dokumentasi & Case File|Dokumen wajib:<br>• Formulir Intake<br>• Hasil Asesmen<br>• Treatment Plan<br>• Progress Note<br>• Laporan Evaluasi<br>• Rencana Aftercare<br><br>Prinsip: Objektif, Rahasia, Sistematis, Akurat.
+
+Etika Profesional|1. Kerahasiaan utama<br>2. Tidak menghakimi<br>3. Tidak menyalahgunakan kewenangan<br>4. Mengutamakan kepentingan klien<br>5. Menghormati HAM
+
+Kesimpulan|"Manajemen kasus adalah seni dan strategi mengawal pemulihan secara utuh."<br><br>Konselor adalah pendengar empatik dan pengarah perubahan profesional.
+
+Terima Kasih|❓ Sesi Tanya Jawab
+`;
+
+const sections = content.trim().split("\n\n");
+
+sections.forEach(section => {
+    const parts = section.split("|");
+    const slide = document.createElement("div");
+    slide.className = "slide";
+    slide.innerHTML = `
+        <img class="watermark">
+        <div class="slide-content">
+            <h2>${parts[0]}</h2>
+            <p>${parts[1]}</p>
+        </div>
+    `;
+    document.body.appendChild(slide);
+});
+
+document.getElementById("logoInput").addEventListener("change", function(e){
+    const file = e.target.files[0];
+    if(file){
+        const reader = new FileReader();
+        reader.onload = function(ev){
+            document.getElementById("coverLogo").src = ev.target.result;
+            document.querySelectorAll(".watermark").forEach(w=>{
+                w.src = ev.target.result;
+            });
+        }
+        reader.readAsDataURL(file);
+    }
+});
+</script>
+
+</body>
+</html>
